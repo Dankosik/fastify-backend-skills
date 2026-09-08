@@ -1,0 +1,38 @@
+{
+  "name": "fastify-backend-skills",
+  "version": "1.0.0",
+  "description": "Independent skills for TypeScript and Fastify backend development.",
+  "author": {
+    "name": "Dankosik",
+    "url": "https://github.com/Dankosik"
+  },
+  "homepage": "https://github.com/Dankosik/fastify-backend-skills",
+  "repository": "https://github.com/Dankosik/fastify-backend-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "developer-tools",
+    "typescript",
+    "backend"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fastify Backend Skills",
+    "shortDescription": "Independent skills for TypeScript and Fastify backend development.",
+    "longDescription": "15 focused, independent skills for TypeScript development. Implement clear requirements, preserve project choices, and use focused evidence for testing and performance.",
+    "defaultPrompt": [
+      "Use typescript-implement to implement this specification with our existing technical choices.",
+      "Help me write focused tests for this TypeScript change.",
+      "Investigate the cause of this TypeScript performance problem."
+    ],
+    "brandColor": "#3178C6",
+    "developerName": "Dankosik",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://github.com/Dankosik/fastify-backend-skills",
+    "privacyPolicyURL": "https://github.com/Dankosik/fastify-backend-skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/Dankosik/fastify-backend-skills/blob/main/LICENSE",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

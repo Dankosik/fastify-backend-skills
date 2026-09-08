@@ -1,0 +1,18 @@
+{
+  "name": "fastify-backend-skills",
+  "version": "1.0.0",
+  "description": "Independent skills for TypeScript and Fastify backend development.",
+  "author": {
+    "name": "Dankosik",
+    "url": "https://github.com/Dankosik"
+  },
+  "homepage": "https://github.com/Dankosik/fastify-backend-skills",
+  "repository": "https://github.com/Dankosik/fastify-backend-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "developer-tools",
+    "typescript",
+    "backend"
+  ]
+}
