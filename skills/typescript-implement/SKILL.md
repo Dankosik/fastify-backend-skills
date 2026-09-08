@@ -19,4 +19,4 @@ Preserve the real contract across types and execution: accepted input, asynchron
 
 If a concrete contradiction prevents correct implementation, identify the exact conflict and continue independent work. Ask only for information that changes the required outcome; routine implementation choices remain yours.
 
-Verify the requested behavior with focused runtime checks and the relevant type check. Respect existing required checks. Finish with working code, actual verification, and any specific unresolved requirement, without expanding the task.
+Verify the requested behavior with focused runtime checks that would fail for a plausible contract violation, and the relevant type check. Match testing effort to the change and respect existing required checks. Finish with working code, actual verification, and any specific unresolved requirement, without expanding the task.

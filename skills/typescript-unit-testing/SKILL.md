@@ -5,7 +5,7 @@ description: "Behavior. Use for TypeScript backend unit tests, assertions, mocks
 
 # TypeScript Unit Testing
 
-**Behavior first.** Find the observable promise. Choose cases that distinguish correct behavior from a plausible defect; derive expected results independently. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Behavior first.** Find the observable promise. Choose fixtures whose values and relationships distinguish correct behavior from a plausible defect; derive expected results independently. Preserve relevant contract distinctions through observation and assertion: decoding, normalization, or helpers must not make incorrect results appear correct. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
 
 Read existing tests, runtime, module system and commands. Preserve the testing stack. Executing TypeScript through a transformer or type stripping does not establish type correctness; identify the project's compiler check.
 

@@ -15,4 +15,4 @@ Prefer inference for local expressions and explicit contracts where they clarify
 
 Preserve distinctions between missing, undefined, null, and valid falsy values. Readonly types express access restrictions, not deep immutability. Check aliasing and shallow copies before promising independence.
 
-Finish with focused checks of the behavior and type contract that changed.
+Finish with focused checks that would fail for a plausible violation of the behavior or type contract that changed.
