@@ -11,7 +11,7 @@ Treat untrusted values as unknown until the existing boundary validates or narro
 
 Prefer inference for local expressions and explicit contracts where they clarify a public boundary. Use discriminated unions for real alternatives and exhaustive handling where the alternatives are closed. Let generics preserve a meaningful relationship; remove parameters that merely decorate a function. Use `satisfies` to check conformance while retaining useful inference, not as runtime validation.
 
-Choose ordinary functions, objects, and collection operations when they express the task directly. Classes fit owned state or invariants; avoid classes that merely wrap functions. Keep effects and branching readable instead of compressing them into transformations.
+**Reuse.** Prefer existing runtime, Fastify, or library operations over handwritten utility logic when their semantics match. Keep wrappers only for domain meaning or adaptation. Use ordinary functions and objects for application logic; classes should own state or invariants. Keep effects and branching readable.
 
 Preserve distinctions between missing, undefined, null, and valid falsy values. Readonly types express access restrictions, not deep immutability. Check aliasing and shallow copies before promising independence.
 

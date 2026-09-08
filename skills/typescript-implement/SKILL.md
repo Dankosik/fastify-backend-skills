@@ -7,9 +7,11 @@ description: "Execution. Use to turn clear requirements, a specification, a tech
 
 **Execution.** When the intended behavior is clear, implement it directly. Treat supplied requirements and settled technical decisions as constraints, not invitations to redesign.
 
-Read the affected code and callers, then extend the existing path. Resolve ordinary local details using the project's TypeScript, runtime, module system, and established libraries. A clear task does not need another architecture exercise.
+Read the affected code and callers, then extend the existing path. Resolve local details using the project's TypeScript, runtime, module system, and conventions.
 
-Choose the smallest complete change that delivers the requested behavior. Prefer ordinary functions, values, and existing Fastify composition where they fit. New abstractions, dependencies, configuration, or adjacent cleanup need a present requirement. Keep specified schema, persistence, and testing choices intact.
+**Reuse.** Before writing technical helpers, check existing project code, runtime and Fastify APIs, and declared utilities such as Remeda. Use a matching API directly. Write custom mechanics only for a concrete semantic or operational gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
+
+Choose the smallest complete change. New abstractions, dependencies, configuration, or adjacent cleanup need a present requirement. Preserve specified schema, persistence, and testing choices.
 
 Preserve the real contract across types and execution: accepted input, asynchronous completion, failures, and observable effects. A type assertion can silence the checker without implementing the requirement. Finish the operation's actual path rather than leaving a typed stub or detached promise.
 
