@@ -11,7 +11,9 @@ Read the affected code and callers, then extend the existing path. Resolve local
 
 **Reuse.** Before writing technical helpers, check existing project code, runtime and Fastify APIs, and declared utilities such as Remeda. Use a matching API directly. Write custom mechanics only for a concrete semantic or operational gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
 
-Choose the smallest complete change. New abstractions, dependencies, configuration, or adjacent cleanup need a present requirement. Preserve specified schema, persistence, and testing choices.
+**Clarity.** Write for the next reader: intention-revealing names, cohesive responsibilities, explicit control flow, and visible effects and failure paths. Keep changes local and follow the language and framework's idioms. Apply SOLID, DRY, and YAGNI as heuristics: abstract shared knowledge, preserve distinct business rules, and add only structure justified by current requirements. Prefer the simplest implementation that remains easy to read and change.
+
+New dependencies, configuration, and adjacent cleanup still need a present requirement. Preserve specified schema, persistence, and testing choices.
 
 Preserve the real contract across types and execution: accepted input, asynchronous completion, failures, and observable effects. A type assertion can silence the checker without implementing the requirement. Finish the operation's actual path rather than leaving a typed stub or detached promise.
 
