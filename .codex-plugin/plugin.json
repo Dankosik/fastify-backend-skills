@@ -1,6 +1,6 @@
 {
   "name": "fastify-backend-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Independent skills for TypeScript and Fastify backend development.",
   "author": {
     "name": "Dankosik",
@@ -19,11 +19,11 @@
   "interface": {
     "displayName": "Fastify Backend Skills",
     "shortDescription": "Independent skills for TypeScript and Fastify backend development.",
-    "longDescription": "15 focused, independent skills for TypeScript development. Implement clear requirements, preserve project choices, and use focused evidence for testing and performance.",
+    "longDescription": "15 independent skills for TypeScript, Node.js, and Fastify backends. Implement requested behavior, preserve project choices, and verify the specific type, runtime, framework, or infrastructure contract that changed.",
     "defaultPrompt": [
-      "Use typescript-implement to implement this specification with our existing technical choices.",
-      "Help me write focused tests for this TypeScript change.",
-      "Investigate the cause of this TypeScript performance problem."
+      "Implement this Fastify endpoint with our existing schemas and technical choices. Complete applicable checks and fix failures introduced by the change.",
+      "Add focused tests for this route's validation and serialized response using the smallest boundary that includes those mechanisms.",
+      "Diagnose why this Fastify decorator is missing in a nested plugin. Explain the runtime scope issue without editing files."
     ],
     "brandColor": "#3178C6",
     "developerName": "Dankosik",

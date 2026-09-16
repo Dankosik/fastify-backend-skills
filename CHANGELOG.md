@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 — Unreleased
+
+- Correct skill activation descriptions within the existing implementation, representation, design, plugin, data, and performance domains. These are behavioral routing changes, not cosmetic edits.
+- Distinguish analysis and diagnosis from editing; preserve settled choices outside an explicitly requested change.
+- Carry implementation through applicable checks and fixes for failures it introduces, without adding speculative completion gates.
+- Match verification to type, runtime, injection, transport, or database claims; scope data, integrations, observability, and build investigation to the changed property.
+- Preserve runtime/type distinctions, real Fastify scopes, security denial effects, bounded async ownership, and honest reporting of unavailable evidence.
+- Refresh Fastify-specific starter prompts and add 16 behavioral evaluation specifications with a fixture-pinning protocol and results template. Model comparisons have not been run.
+- Keep all 15 skill names, paths, standalone installation, and environment requirements unchanged. Prepare the PATCH candidate without publishing a release or moving existing pins.
+
 ## 1.0.0 — 2026-09-08
 
 - First versioned distribution of 15 independent TypeScript skills.

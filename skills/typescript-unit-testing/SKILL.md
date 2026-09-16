@@ -5,9 +5,9 @@ description: "Behavior. Use for TypeScript backend unit tests, assertions, mocks
 
 # TypeScript Unit Testing
 
-**Behavior first.** Find the observable promise. Choose fixtures whose values and relationships distinguish correct behavior from a plausible defect; derive expected results independently. Preserve relevant contract distinctions through observation and assertion: decoding, normalization, or helpers must not make incorrect results appear correct. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Behavior first.** Find the observable promise. Choose fixtures whose values and relationships distinguish correct behavior from a plausible defect; derive expected results independently. Preserve relevant contract distinctions through observation and assertion: decoding, normalization, or helpers must not make incorrect results appear correct. Honor the requested outcome and preserve settled choices outside the requested change.
 
-Read existing tests, runtime, module system and commands. Preserve the testing stack. Executing TypeScript through a transformer or type stripping does not establish type correctness; identify the project's compiler check.
+Use existing tests and commands; inspect runtime, module system, or runner configuration when API or discovery behavior is unclear. Preserve the testing stack. Executing TypeScript through a transformer or type stripping does not establish type correctness. Identify the project's applicable compiler check and whether it includes the changed test files before claiming they were type-checked.
 
 Exercise functions and components directly. Prefer real values and fixtures. Mock a collaborator when its responses or effects define the scenario; verify calls when those calls are the requirement. Avoid broad module mocks and casts that hide an impossible fixture.
 
@@ -15,4 +15,4 @@ Await asynchronous assertions, nested tests and cleanup. Make rejection tests fa
 
 Treat clearing call history, resetting implementations, restoring spies and clearing module caches as different operations. Check the runner's semantics and import timing before relying on isolation. Restore changed globals, environment and clocks; avoid concurrent tests sharing those mutations.
 
-Challenge each test: could the defect survive it, or would harmless refactoring break it? Run tests and type checks, confirm discovery, and state any boundary left untested.
+Challenge each test: could the defect survive it, or would harmless refactoring break it? For review, explain the gap without editing. When writing tests, run the relevant tests and applicable type checks, preserve required project checks, and confirm discovery and cleanup. Reuse valid results for the same revision and environment; state any unchecked type or runtime boundary rather than inventing a new test stack.

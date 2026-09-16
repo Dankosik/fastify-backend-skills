@@ -1,16 +1,20 @@
-# Fastify Backend Skills 1.0.0
+# Fastify Backend Skills 1.0.1
 
-First versioned release of this independent skill pack. Existing SKILL.md
-instructions are unchanged. This release adds portable and native plugin
-metadata, standalone license notices, reproducible installation instructions,
-and a verified distribution archive.
+Unreleased candidate. This revision refines instruction behavior within the
+existing 15 independent skills; it does not add an installation prerequisite,
+shared instruction dependency, agent role, or mandatory workflow.
 
-- One package version, with the same skill content for every supported channel.
-- Install individual skills using Skills CLI or GitHub CLI.
-- Install the whole pack through the Dankosik Claude/Codex marketplace.
-- Archive checksums and per-file hashes identify the exact release commit.
+- Select skills for the affected decision rather than every technology present.
+- Distinguish diagnosis and review from editing, and preserve unrelated settled choices.
+- Complete requested implementation and fix failures it introduces without inventing unrelated completion gates.
+- Match verification to type, runtime, Fastify injection, transport, and database claims; preserve technical evidence standards.
+- Use clearer Fastify starter prompts and 16 maintainer evaluation specifications with pinned-fixture requirements.
 
-See [installation and updates](https://github.com/Dankosik/fastify-backend-skills/blob/v1.0.0/docs/distribution.md).
-An author marketplace is available without curated-directory approval. OpenAI
-and Anthropic public-directory listings have their own submission and review
-process; this release does not claim either listing has been approved.
+Behavioral model comparisons have not been run. Structural and installation
+validation do not demonstrate universal quality or speed improvements. Record
+focused evaluation results before publishing semantic instruction changes.
+
+Published installation examples still target v1.0.0. Before publishing, verify
+the candidate, record behavioral evidence, update the released-version references
+and remove unreleased labels in a reviewed commit. No release or marketplace pin
+is changed by preparing these files. Public-directory approval is not claimed.

@@ -1,4 +1,4 @@
-# Submission packet — Fastify Backend Skills 1.0.0
+# Submission packet — Fastify Backend Skills 1.0.1 (unreleased)
 
 These are reviewer-ready listing details and proposed evaluation scenarios.
 They are not a claim that either provider has approved or published this plugin,
@@ -15,9 +15,9 @@ or that these model-behavior scenarios were executed during packaging validation
 - Terms/license: https://github.com/Dankosik/fastify-backend-skills/blob/main/LICENSE
 - Logo: assets/logo.png (512×512)
 - Kind: skills only; no MCP, hooks, account integration, bundled executable, or publisher data service
-- Archive: `fastify-backend-skills-1.0.0.zip` from this GitHub Release
+- Archive: `fastify-backend-skills-1.0.1.zip` after candidate validation and publication; not yet a published release
 - Starter prompts: `.codex-plugin/plugin.json` → `interface.defaultPrompt`
-- Release note: first versioned distribution; skill instruction text is unchanged
+- Release note: scope, routing, and completion corrections within the existing 15 skills; behavioral comparisons are not yet run
 
 ## Owner-controlled fields still required for a public-directory submission
 
@@ -26,6 +26,17 @@ account/organization, supported availability regions, and any final listing
 changes. Package metadata does not establish identity verification. No account
 credentials are required to use the skills, and no demo credentials should be
 invented. Confirm the provider's policy attestations personally before submission.
+
+## Focused behavioral evaluation
+
+The original five positive and three negative examples below remain useful for
+explicit invocation. The additional [16 natural-request scenarios and comparison
+protocol](https://github.com/Dankosik/fastify-backend-skills/blob/main/docs/evaluation.md)
+cover implicit routing, Fastify scopes and serialization, type-only changes,
+transport, data, async ownership, and completion. They are specifications, not
+executed results or runnable application fixtures. Materialize and pin workspace
+fixtures before model comparisons, and record results before publishing semantic
+instruction changes. Packaging or installation success is not behavioral proof.
 
 ## Five positive scenarios
 
