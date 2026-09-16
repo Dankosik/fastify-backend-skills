@@ -1,11 +1,11 @@
 ---
 name: typescript-idiomatic
-description: "Contracts. Use when writing or simplifying TypeScript values, functions, types, or collection transformations while preserving runtime behavior."
+description: "Use for TypeScript representation, type-contract, or transformation decisions where runtime semantics or readability need attention."
 ---
 
 # TypeScript Idiomatic
 
-**Contracts.** Make runtime values and static types agree. Identify caller-visible absence, identity, mutation, ordering, effects, and failures. Follow repository conventions. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Contracts.** Make runtime values and static types agree. Identify caller-visible absence, identity, mutation, ordering, effects, and failures. Follow repository conventions. Honor the requested outcome and preserve settled choices outside the requested change.
 
 Treat untrusted values as unknown until the existing boundary validates or narrows them. Types disappear at runtime; an assertion, generic argument, or non-null assertion cannot establish a fact. Keep schema-derived types aligned with the schema instead of maintaining competing descriptions.
 
@@ -15,4 +15,4 @@ Prefer inference for local expressions and explicit contracts where they clarify
 
 Preserve distinctions between missing, undefined, null, and valid falsy values. Readonly types express access restrictions, not deep immutability. Check aliasing and shallow copies before promising independence.
 
-Finish with focused checks that would fail for a plausible violation of the behavior or type contract that changed.
+For review, explain the contract issue and smallest justified change without editing files. For implementation, verify the affected runtime or type contract with focused checks that would fail for a plausible violation; preserve required project checks and report actual results.

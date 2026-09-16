@@ -14,7 +14,16 @@ Skill files do not receive a package-version bump just to change their hashes.
 Run `python scripts/distribution.py check` and the installation smoke command
 in docs/distribution.md. CI validates the format and distributable; semantic
 skill changes additionally need focused behavioral evaluation. An installation
-pass is not proof of quality across all models.
+pass is not proof of quality across all models. Use the
+[evaluation protocol](evaluation.md), record fixture and model pins, and retain
+both positive outcomes and regressions. Scenario descriptions are not executions.
+Evaluate routing with natural requests, not only explicit skill invocations.
+
+The 1.0.1 candidate corrects scope and completion within the existing skill
+domains; names, standalone invocation, paths, and environment requirements remain
+unchanged. This justifies PATCH here, not a rule that all prompt edits are PATCH.
+Keep the candidate marked unreleased and installation examples on the published
+version until publication; do not claim behavioral gains without recorded runs.
 
 Release from a reviewed, green commit. Push `vX.Y.Z` matching plugin.json.
 The release workflow validates that exact tag, builds one skills-only archive,

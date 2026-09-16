@@ -1,22 +1,24 @@
 ---
 name: typescript-implement
-description: "Execution. Use to turn clear requirements, a specification, a technical design, or a straightforward backend request into working TypeScript and Fastify code."
+description: "Implement requested TypeScript backend behavior within the project's existing contracts and technical choices."
 ---
 
 # TypeScript Implement
 
-**Execution.** When the intended behavior is clear, implement it directly. Treat supplied requirements and settled technical decisions as constraints, not invitations to redesign.
+**Execution.** When the intended behavior is clear, implement it directly. Preserve settled choices outside the requested change; an explicitly requested technology change is part of the task, not an invitation to redesign unrelated decisions.
 
 Read the affected code and callers, then extend the existing path. Resolve local details using the project's TypeScript, runtime, module system, and conventions.
 
-**Reuse.** Before writing technical helpers, check existing project code, runtime and Fastify APIs, and declared utilities such as Remeda. Use a matching API directly. Write custom mechanics only for a concrete semantic or operational gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
+**Reuse.** When a technical helper is needed, look for a semantic match in nearby code and APIs already available from the runtime, Fastify, or declared utilities such as Remeda. Keep the search proportional to the helper. Write custom mechanics only for a concrete gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
 
-**Clarity.** Write for the next reader: intention-revealing names, cohesive responsibilities, explicit control flow, and visible effects and failure paths. Keep changes local and follow the language and framework's idioms. Apply SOLID, DRY, and YAGNI as heuristics: abstract shared knowledge, preserve distinct business rules, and add only structure justified by current requirements. Prefer the simplest implementation that remains easy to read and change.
+**Clarity.** Write for the next reader: intention-revealing names, cohesive responsibilities, explicit control flow, and visible effects and failure paths. Apply SOLID, DRY, and YAGNI as heuristics: abstract shared knowledge, preserve distinct business rules, and add only structure justified by current requirements. Prefer the simplest implementation that remains easy to read and change.
 
-New dependencies, configuration, and adjacent cleanup still need a present requirement. Preserve specified schema, persistence, and testing choices.
+New dependencies, configuration, and adjacent cleanup still need a present requirement. Preserve specified schema, persistence, and testing choices outside the requested change.
 
-Preserve the real contract across types and execution: accepted input, asynchronous completion, failures, and observable effects. A type assertion can silence the checker without implementing the requirement. Finish the operation's actual path rather than leaving a typed stub or detached promise.
+Preserve the real contract across types and execution: accepted input, asynchronous completion, failures, and observable effects. A type assertion cannot implement a requirement. Finish the actual operation rather than leaving a typed stub or detached promise.
 
 If a concrete contradiction prevents correct implementation, identify the exact conflict and continue independent work. Ask only for information that changes the required outcome; routine implementation choices remain yours.
 
-Verify the requested behavior with focused runtime checks that would fail for a plausible contract violation, and the relevant type check. Match testing effort to the change and respect existing required checks. Finish with working code, actual verification, and any specific unresolved requirement, without expanding the task.
+Verify the changed property with appropriate type or runtime checks and required project checks. Type-only changes need type evidence; runtime claims need runtime evidence. Reuse applicable results for the same revision and environment. Within the environment's permissions, fix failures introduced by the change and rerun affected checks instead of stopping for review after the first patch.
+
+Finish when the requested outcome and required checks are satisfied, or state the concrete blocker and unverified property. Do not invent infrastructure, unrelated cleanup, or speculative checks as new completion requirements; never present an unavailable check as passed.

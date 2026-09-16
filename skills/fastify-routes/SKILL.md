@@ -5,7 +5,7 @@ description: "Contract. Use when Fastify routes, validation, serialization, hook
 
 # Fastify Routes
 
-**Contract.** Start from accepted input, status, headers, response shape, and failure behavior. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Contract.** Start from accepted input, status, headers, response shape, and failure behavior. Honor the requested outcome and preserve settled choices outside the requested change.
 
 Keep runtime validation and TypeScript inference aligned through the project's existing schema library, compiler, and type provider. A type assertion does not validate a request. Treat compiled schemas as trusted application code; caller-supplied schemas cannot safely enter that compilation path.
 
@@ -15,4 +15,4 @@ Return intentional public data and use response schemas where the contract calls
 
 Choose hooks by when their inputs exist and what remains changeable. Keep one owner for sending the response. Use the scoped error handler for translation; `onError` observes failures and cannot send a replacement response.
 
-Exercise the changed route through Fastify, including meaningful invalid input or failure. Inspect serialization and application effects; a direct handler call cannot prove the HTTP contract.
+For review, explain the affected contract without editing. When changing route behavior, exercise it through Fastify, normally with injection, including the meaningful invalid-input or failure case. Observe the changed serialization or application effect; a direct handler call cannot prove validation, serialization, or hooks. Use real transport only for transport-dependent claims and report unverified boundaries without expanding to a whole-application audit.

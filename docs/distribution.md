@@ -1,9 +1,13 @@
 # Install, update, and roll back
 
-The source is `skills/`. Each folder contains unchanged skill instructions and
+The source is `skills/`. Each folder contains self-contained skill instructions and
 an MIT license notice. The root `plugin.json` is the version authority; native
 Claude and Codex manifests are generated from it. A package version identifies
 one snapshot of all skills, while installation can select a subset.
+
+The source checkout prepares 1.0.1 (unreleased). The commands below intentionally
+remain pinned to published v1.0.0; adopting candidate instructions is not the
+same as installing that release. Do not move the published tag.
 
 ## Reproducible standalone installation
 
@@ -101,7 +105,9 @@ python scripts/install_smoke.py
 The validation uses the official Agent Skills reference at a fixed commit and
 the published Agent Plugins 1.0.0 schema. Native client checks supplement those
 structural checks; none establishes universal behavioral quality. See
-[versioning](versioning.md) and [submission materials](submission.md).
+[versioning](versioning.md), [submission materials](submission.md), and the
+[behavioral evaluation protocol](evaluation.md). Evaluation materials belong to
+maintainers and are not runtime dependencies or part of individual skills.
 
 Sources: [Agent Skills](https://agentskills.io/specification),
 [Agent Plugins](https://agent-plugins.org/plugin-authors/manifest),
