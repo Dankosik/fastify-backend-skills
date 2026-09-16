@@ -15,4 +15,4 @@ Prefer inference for local expressions and explicit contracts where they clarify
 
 Preserve distinctions between missing, undefined, null, and valid falsy values. Readonly types express access restrictions, not deep immutability. Check aliasing and shallow copies before promising independence.
 
-For review, explain the contract issue and smallest justified change without editing files. For implementation, verify the affected runtime or type contract with focused checks that would fail for a plausible violation; preserve required project checks and report actual results.
+For review, locate the affected expression, show an input or caller condition that violates the contract, and check relevant narrowing or guards before reporting a defect. Distinguish a preference from a bug; no findings is a valid result. Explain the smallest justified change without editing files. For implementation, verify the affected runtime or type contract with focused checks that would fail for a plausible violation; preserve required project checks and report actual results.

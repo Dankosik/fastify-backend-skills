@@ -1,6 +1,6 @@
 ---
 name: fastify-security
-description: "Authorization. Use when Fastify authentication, resource permissions, tenancy, browser credentials, proxy trust, or request protections cross a security boundary."
+description: "Use for Fastify access control, tenant isolation, credential verification, request protections, and browser or proxy trust."
 ---
 
 # Fastify Security
@@ -15,4 +15,4 @@ When browser credentials are involved, reason separately about automatically att
 
 When proxy or request protections are affected, trust forwarding headers only through the known proxy boundary. Relate body limits, timeouts, and rate-limit identity and storage to the actual deployment. A receive timeout does not cancel application work. Do not turn a local permission change into an unrelated deployment audit.
 
-For review, explain the access risk without editing. For implementation, exercise the real security path and the denial that would expose the flaw; assert that no protected effect occurred alongside the relevant successful case. Report the boundary exercised and any missing evidence, not a broader security guarantee.
+For review, connect attacker-controlled input to a reachable protected operation and identify the missing or ineffective guard without editing. Check actual hook scope and existing enforcement; distinguish a demonstrated access defect from a hardening hypothesis. Never present an untested exploit as observed. For implementation, exercise the real security path and the denial that would expose the flaw; assert that no protected effect occurred alongside the relevant successful case. Report the boundary exercised and any missing evidence, not a broader security guarantee.

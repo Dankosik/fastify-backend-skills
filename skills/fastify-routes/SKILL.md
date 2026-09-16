@@ -1,6 +1,6 @@
 ---
 name: fastify-routes
-description: "Contract. Use when Fastify routes, validation, serialization, hooks, or errors change observable HTTP behavior."
+description: "Use to implement or review Fastify HTTP contracts: request validation, hooks, response serialization, status and errors."
 ---
 
 # Fastify Routes
@@ -15,4 +15,4 @@ Return intentional public data and use response schemas where the contract calls
 
 Choose hooks by when their inputs exist and what remains changeable. Keep one owner for sending the response. Use the scoped error handler for translation; `onError` observes failures and cannot send a replacement response.
 
-For review, explain the affected contract without editing. When changing route behavior, exercise it through Fastify, normally with injection, including the meaningful invalid-input or failure case. Observe the changed serialization or application effect; a direct handler call cannot prove validation, serialization, or hooks. Use real transport only for transport-dependent claims and report unverified boundaries without expanding to a whole-application audit.
+For review, identify the route or hook, triggering request and resulting contract violation without editing. Check the actual scoped schema and error path before treating a handler-only concern as an HTTP defect. When changing route behavior, exercise it through Fastify, normally with injection, including the meaningful invalid-input or failure case. Observe the changed serialization or application effect; a direct handler call cannot prove validation, serialization, or hooks. Use real transport only for transport-dependent claims and report unverified boundaries without expanding to a whole-application audit.

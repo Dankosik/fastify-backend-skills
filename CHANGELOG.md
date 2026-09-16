@@ -2,6 +2,11 @@
 
 ## 1.0.1 — Unreleased
 
+- Require concrete counterexamples and checked guards for consequential review findings; separate design preferences and hypotheses from defects. Keep the six affected skills independent and compact.
+- Add task-conditioned maintainer guidance and a bounded, optional review protocol with one verification owner; never imply unavailable subagents were run.
+- Add 22 self-contained prompt cases and a standard-library evidence-record validator with synthetic contract tests. No model comparison or application-fixture execution is claimed.
+- Include linked documentation in release archives and check local links against ZIP contents; continue excluding authoring tools, evaluation data and maintainer agent instructions.
+
 - Correct skill activation descriptions within the existing implementation, representation, design, plugin, data, and performance domains. These are behavioral routing changes, not cosmetic edits.
 - Distinguish analysis and diagnosis from editing; preserve settled choices outside an explicitly requested change.
 - Carry implementation through applicable checks and fixes for failures it introduces, without adding speculative completion gates.
