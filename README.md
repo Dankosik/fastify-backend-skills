@@ -75,6 +75,8 @@ Keep each skill independent and decision-focused. Prefer an established concept 
 
 The [behavioral evaluation scenarios and comparison protocol](https://github.com/Dankosik/fastify-backend-skills/blob/main/docs/evaluation.md) are maintainer materials, not runtime skill dependencies. Compare unassisted, prior-pack, and candidate behavior on pinned fixtures before claiming an improvement. The scenarios are specifications, not recorded model results.
 
+The [authoring rationale and bounded review protocol](docs/authoring.md) document which reference ideas were adopted and which were deliberately rejected. The [22 self-contained prompt cases and evidence-record validator](https://github.com/Dankosik/fastify-backend-skills/blob/main/evals/README.md) supplement the workspace scenarios without requiring an application fixture. Their contract tests are not model runs: missing traces, incomplete grading, and `not-run` records cannot become passing evidence. Maintainer tools stay outside individual skills and release archives; linked documentation is included in the archive.
+
 The pack uses the [Agent Skills format](https://agentskills.io/specification). Structural validity and a few useful examples do not establish a universal improvement across models.
 
 ## Acknowledgements

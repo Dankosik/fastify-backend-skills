@@ -76,8 +76,9 @@ def check(root):
             raise ValueError(skill.name + ": " + "; ".join(problems))
         if (skill / "LICENSE").read_bytes() != license_bytes:
             raise ValueError("individual skill license differs from package license")
-    for path in list((root / "skills").rglob("*")) + list((root / "assets").rglob("*")):
-        if path.is_symlink():
+    for folder in ["skills", "assets", "docs"]:
+        parent = root / folder
+        if parent.is_symlink() or any(path.is_symlink() for path in parent.rglob("*")):
             raise ValueError("distributable paths must not be symlinks")
     for image in [root / "assets/logo.png", root / "assets/logo.svg"]:
         if not image.is_file():
@@ -101,7 +102,7 @@ def build(root, destination):
     timestamp = int(subprocess.check_output(git + ["show", "-s", "--format=%ct", "HEAD"], text=True))
     date = datetime.fromtimestamp(max(timestamp, 315532800), timezone.utc).timetuple()[:6]
     files = [root / p for p in ["plugin.json", ".claude-plugin/plugin.json", ".codex-plugin/plugin.json", "README.md", "LICENSE", "PRIVACY.md", "SUPPORT.md", "CHANGELOG.md"]]
-    files += [p for folder in ["skills", "assets"] for p in (root / folder).rglob("*") if p.is_file()]
+    files += [p for folder in ["skills", "assets", "docs"] for p in (root / folder).rglob("*") if p.is_file()]
     files.sort(key=lambda path: path.relative_to(root).as_posix())
     if any(p.is_symlink() for p in files):
         raise ValueError("archive cannot contain symlinks")

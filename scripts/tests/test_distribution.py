@@ -3,16 +3,51 @@ import importlib.util
 import io
 import json
 from pathlib import Path
+import posixpath
+import re
 import shutil
 import subprocess
 import tempfile
 import unittest
+from urllib.parse import unquote, urlsplit
 import zipfile
 
 SOURCE = Path(__file__).resolve().parents[2]
 SPEC = importlib.util.spec_from_file_location("distribution", SOURCE / "scripts/distribution.py")
 distribution = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(distribution)
+
+
+def missing_archive_links(archive):
+    """Check the inline local links this pack uses, against ZIP members, not source."""
+    names = set(archive.namelist())
+    missing = []
+    for name in sorted(names):
+        if not name.endswith(".md"):
+            continue
+        text = archive.read(name).decode("utf-8")
+        for link in re.findall(r"\]\(([^)\s]+)\)", text):
+            url = urlsplit(link)
+            if url.scheme or url.netloc or not url.path:
+                continue
+            target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(url.path)))
+            if target not in names and not any(n.startswith(target + "/") for n in names):
+                missing.append((name, link))
+    return missing
+
+
+class ArchiveLinkTests(unittest.TestCase):
+    def test_link_checker_rejects_missing_docs_and_accepts_packaged_docs(self):
+        for include_docs in [False, True]:
+            with self.subTest(include_docs=include_docs):
+                buffer = io.BytesIO()
+                with zipfile.ZipFile(buffer, "w") as archive:
+                    archive.writestr("pack/README.md", "[Guide](docs/guide.md#setup) [Web](https://example.invalid) [Here](#here)")
+                    if include_docs:
+                        archive.writestr("pack/docs/guide.md", "[Back](../README.md)")
+                buffer.seek(0)
+                with zipfile.ZipFile(buffer) as archive:
+                    self.assertEqual(missing_archive_links(archive), [] if include_docs else [("pack/README.md", "docs/guide.md#setup")])
 
 
 class DistributionTests(unittest.TestCase):
@@ -49,6 +84,11 @@ class DistributionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "symlinks"):
             self.check()
 
+    def test_documentation_symlink_is_rejected(self):
+        (self.root / "docs/external.md").symlink_to(self.root / "LICENSE")
+        with self.assertRaisesRegex(ValueError, "symlinks"):
+            self.check()
+
     def test_archive_is_reproducible_and_excludes_authoring_tools(self):
         commands = [["git", "init", "-q"], ["git", "add", "."], ["git", "-c", "user.name=Test", "-c", "user.email=test@example.invalid", "-c", "commit.gpgsign=false", "commit", "-qm", "fixture"]]
         for command in commands:
@@ -62,9 +102,12 @@ class DistributionTests(unittest.TestCase):
         self.assertEqual(a.read_bytes(), b.read_bytes())
         with zipfile.ZipFile(a) as archive:
             names = archive.namelist()
-            self.assertFalse(any("/scripts/" in name or "/.github/" in name for name in names))
+            self.assertFalse(any("/scripts/" in name or "/.github/" in name or "/evals/" in name for name in names))
+            self.assertNotIn(SOURCE.name + "/AGENTS.md", names)
             self.assertTrue(any(name.endswith("/.codex-plugin/plugin.json") for name in names))
             self.assertTrue(any(name.endswith("/.claude-plugin/plugin.json") for name in names))
+            self.assertIn(SOURCE.name + "/docs/distribution.md", names)
+            self.assertEqual(missing_archive_links(archive), [])
             for skill in (self.root / "skills").iterdir():
                 self.assertIn(SOURCE.name + "/skills/" + skill.name + "/LICENSE", names)
 
